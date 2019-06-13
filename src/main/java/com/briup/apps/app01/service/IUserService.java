@@ -24,7 +24,16 @@ public interface IUserService {
     void updateUser(User user);
 
     /**
-     * @Description: 根据学生id删除学生信息
+     * @Description: 新增或者修改
+     * @Param: [user]
+     * @return: void
+     * @Author: CC
+     * @Date: 2019/5/16 17:27
+     */
+    void saveOrUpdate(User user);
+
+    /**
+     * @Description: 根据id删除用户信息
      * @Param: [id]
      * @return: void
      * @Author: CC
@@ -33,7 +42,34 @@ public interface IUserService {
     void deleteUserById(Long id);
 
     /**
-     * @Description: 查找所有学生信息
+     * @Description: 从课程表中删除关联约束teacher_id
+     * @Param: [teacher_id]
+     * @return: void
+     * @Author: CC
+     * @Date: 2019/5/16 17:26
+     */
+    void deleteTeacher_idOfCourse(Long teacher_id);
+
+    /**
+     * @Description: 从选课表中删除关联约束student_id
+     * @Param: [student_id]
+     * @return: void
+     * @Author: CC
+     * @Date: 2019/5/16 17:26
+     */
+    void deleteStudent_idOfStudentCourse(Long student_id);
+
+    /**
+     * @Description: 批量删除
+     * @Param: [ids]
+     * @return: void
+     * @Author: CC
+     * @Date: 2019/5/16 17:27
+     */
+    void deleteUserBanchByIds(Long[] ids);
+
+    /**
+     * @Description: 查找所有用户信息
      * @Param: []
      * @return: java.util.List<com.briup.apps.app01.bean.User>
      * @Author: CC
@@ -42,7 +78,7 @@ public interface IUserService {
     List<User> findAll();
 
     /**
-     * @Description: 根据学生id查询学生信息
+     * @Description: 根据id查询用户信息
      * @Param: [id]
      * @return: com.briup.apps.app01.bean.User
      * @Author: CC
@@ -50,4 +86,21 @@ public interface IUserService {
      */
     User findUserById(Long id);
 
+    /**
+     * @Description: 查询所有学生
+     * @Param: []
+     * @return: java.util.List<com.briup.apps.app01.bean.User>
+     * @Author: CC
+     * @Date: 2019/5/16 17:26
+     */
+    List<User> findAllStudent();
+
+    /**
+     * @Description: 查询所有老师
+     * @Param: []
+     * @return: java.util.List<com.briup.apps.app01.bean.User>
+     * @Author: CC
+     * @Date: 2019/5/16 17:26
+     */
+    List<User> findAllTeacher();
 }

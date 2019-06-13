@@ -6,14 +6,11 @@ import com.briup.apps.app01.service.ICourseService;
 import com.briup.apps.app01.utils.Message;
 import com.briup.apps.app01.utils.MessageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @program: app01
- * @description:
+ * @description: 课程Controller
  * @author: CC
  * @create: 2019/05/03 20:20
  */
@@ -29,15 +26,27 @@ public class CourseController {
         return MessageUtil.success("success");
     }
 
-    @GetMapping("updateCourse")
+    @PostMapping("updateCourse")
     public Message updateCourse(Course course) {
         courseService.updateCourse(course);
+        return MessageUtil.success("success");
+    }
+
+    @PostMapping("saveOrUpdate")
+    public Message saveOrUpdate(Course course) {
+        courseService.saveOrUpdate(course);
         return MessageUtil.success("success");
     }
 
     @GetMapping("deleteCourseById")
     public Message deleteCourseById(Long id) {
         courseService.deleteCourseById(id);
+        return MessageUtil.success("success");
+    }
+
+    @PostMapping("deleteCourseBanchByIds")
+    public Message deleteCourseBanchByIds(@RequestBody Long[] ids) {
+        courseService.deleteCourseBanchByIds(ids);
         return MessageUtil.success("success");
     }
 

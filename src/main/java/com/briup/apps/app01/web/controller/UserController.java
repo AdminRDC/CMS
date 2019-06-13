@@ -5,14 +5,11 @@ import com.briup.apps.app01.service.IUserService;
 import com.briup.apps.app01.utils.Message;
 import com.briup.apps.app01.utils.MessageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @program: app01
- * @description:
+ * @description: 用户Controller
  * @author: CC
  * @create: 2019/05/03 20:27
  */
@@ -28,9 +25,15 @@ public class UserController {
         return MessageUtil.success("success");
     }
 
-    @GetMapping("/updateUser")
+    @PostMapping("/updateUser")
     public Message updateUser(User user) {
         iUserService.updateUser(user);
+        return MessageUtil.success("success");
+    }
+
+    @PostMapping("/saveOrUpdate")
+    public Message saveOrUpdate(User user) {
+        iUserService.saveOrUpdate(user);
         return MessageUtil.success("success");
     }
 
@@ -40,14 +43,31 @@ public class UserController {
         return MessageUtil.success("success");
     }
 
+    @PostMapping("deleteUserBanchByIds")
+    public Message deleteUserBanchByIds(@RequestBody Long[] ids) {
+        iUserService.deleteUserBanchByIds(ids);
+        return MessageUtil.success("success");
+    }
+
     @GetMapping("/findAll")
     public Message findAll() {
         return MessageUtil.success(iUserService.findAll());
+    }
+
+    @GetMapping("/findAllStudent")
+    public Message findAllStudent() {
+        return MessageUtil.success(iUserService.findAllStudent());
+    }
+
+    @GetMapping("/findAllTeacher")
+    public Message findAllTeacher() {
+        return MessageUtil.success(iUserService.findAllTeacher());
     }
 
     @GetMapping("/findUserById")
     public Message findUserById(Long id) {
         return MessageUtil.success(iUserService.findUserById(id));
     }
+
 
 }

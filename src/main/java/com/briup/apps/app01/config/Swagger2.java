@@ -45,10 +45,10 @@ public class Swagger2 {
 	
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
-				.title("智慧校园，课程管理系统API")
-				.description("昆山杰普软件科技有限公司，http://www.rdc0905.cn")
+				.title("智慧校园|课程管理系统API")
+				.description("感谢王豆豆同学为此接口的实现提供大力支持 http://www.rdc0905.cn 2019年5月16日")
 				.termsOfServiceUrl("http://www.rdc0905.cn")
-				.version("1.0")
+				.version("2.0")
 				.build();
 	}
 }

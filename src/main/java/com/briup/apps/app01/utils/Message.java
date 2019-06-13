@@ -1,8 +1,10 @@
 package com.briup.apps.app01.utils;
 
 /**
- * 统一消息
- *
+ * @program: app01
+ * @description: 统一消息
+ * @author: CC
+ * @create: 2019/05/06 20:25
  */
 public class Message {
     private Integer status;

@@ -5,7 +5,7 @@ import com.briup.apps.app01.bean.User;
 
 /**
  * @program: app01
- * @description:
+ * @description:课程扩展类
  * @author: CC
  * @create: 2019/05/03 20:20
  */

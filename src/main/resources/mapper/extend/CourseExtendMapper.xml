@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.briup.apps.app01.mapper.extend.CourseExtendMapper">
-  <select id="selectAll" resultMap="courseExtendResultMap">
-    select * from c_course;
+
+    <resultMap id="courseExtendResultMap"
+               extends="com.briup.apps.app01.mapper.CourseMapper.BaseResultMap"
+               type="com.briup.apps.app01.bean.extend.CourseExtend">
+        <association property="teacher" column="teacher_id"
+                     select="com.briup.apps.app01.mapper.UserMapper.selectByPrimaryKey"></association>
+    </resultMap>
+
+    <select id="selectAll" resultMap="courseExtendResultMap">
+        select * from c_course;
   </select>
-  <resultMap
-          id="courseExtendResultMap"
-          extends="com.briup.apps.app01.mapper.CourseMapper.BaseResultMap"
-          type="com.briup.apps.app01.bean.extend.CourseExtend">
-<!--    <association-->
-<!--            property="teacher"-->
-<!--            column="teacher_id"-->
-<!--            select="com.briup.apps.app01.mapper.UserMapper.selectByPrimaryKey">-->
-<!--    </association>-->
-  </resultMap>
+
 </mapper>
